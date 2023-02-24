@@ -1,5 +1,6 @@
 import express from 'express';
 import UserRouter from './routes/User.js';
+import NotificationRouter from './routes/Noti.js'
 import cookieParser from 'cookie-parser';
 import fileUpload from 'express-fileupload';
 import cors from 'cors'
@@ -19,6 +20,8 @@ app.use(fileUpload({
 app.use(cors())
 
 app.use('/api/v1', UserRouter);
+app.use('/api/v1', NotificationRouter);
+
 
 app.get('/', (req,res)=>{
     res.send('Running Paperless Backend..')
