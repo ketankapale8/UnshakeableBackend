@@ -3,7 +3,7 @@ import { User } from "../models/users.js";
 export const getAllTokens = async (req , res) =>{
     try{
         const allUsers = await User.find()
-        const tokens = allUsers;
+        const tokens = allUsers.token;
         res.status(200).json({tokens})
 
     }catch(err){
