@@ -9,7 +9,7 @@ import fs from 'fs';
 //register//
 export const register = async (req, res) => {
   try {
-    const { name, email, password} = req.body;
+    const { name, email, password,token } = req.body;
     // const avatar = req.files.avatar.tempFilePath;
     
     let user = await User.findOne({ email });
@@ -32,7 +32,8 @@ export const register = async (req, res) => {
     user = await User.create({
       name,
       email,
-      password, 
+      password,
+      token,
       // avatar: {
       //   public_id: mycloud.public_id,
       //   url: mycloud.secure_url,
@@ -57,17 +58,6 @@ export const register = async (req, res) => {
     res.status(500).json({ success: false, msg: err.message });
   }
 };
-
-
-
-
-
-
-
-
-
-
-
 
 // verify //
 export const verify = async (req, res) => {

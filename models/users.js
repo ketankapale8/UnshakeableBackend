@@ -20,6 +20,8 @@ const userSchema = new mongoose.Schema({
         select: false
     },
 
+
+
     // avatar :{
     //     public_id: String,
     //     url : String,
@@ -59,6 +61,10 @@ const userSchema = new mongoose.Schema({
     verified : {
         type: Boolean,
         default: false
+    },
+    token :{
+        type : String,
+        required : false
     },
 
     // from old paperless model //

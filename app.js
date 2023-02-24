@@ -19,6 +19,7 @@ app.use(fileUpload({
 app.use(cors())
 
 app.use('/api/v1', UserRouter);
+
 app.get('/', (req,res)=>{
     res.send('Running Paperless Backend..')
 })
