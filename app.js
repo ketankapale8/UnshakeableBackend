@@ -1,6 +1,6 @@
 import express from 'express';
 import UserRouter from './routes/User.js';
-import NotificationRouter from './routes/Noti.js'
+import NotificationRouter from './routes/Tokens.js'
 import cookieParser from 'cookie-parser';
 import fileUpload from 'express-fileupload';
 import cors from 'cors'
