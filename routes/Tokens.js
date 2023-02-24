@@ -3,5 +3,5 @@ import {getAllTokens} from '../controllers/Tokens.js'
 
 const router = express.Router();
 
-router.post('/gettokens' , getAllTokens)
+router.get('/gettokens' , getAllTokens)
 export default router;

@@ -2,7 +2,7 @@ import { User } from "../models/users.js";
 
 export const getAllTokens = async (req , res) =>{
     try{
-        const allUsers = User.find({})
+        const allUsers = await User.find()
         const tokens = allUsers;
         res.status(200).json({tokens})
 
