@@ -9,8 +9,7 @@ import fs from 'fs';
 //register//
 export const register = async (req, res) => {
   try {
-    const { name, email, password,token } = req.body;
-    console.log(token)
+    const { name, email, password,token , country , SSN , carType , carModelNo , noOfMilesRan , insured } = req.body;
     // const avatar = req.files.avatar.tempFilePath;
     
     let user = await User.findOne({ email });
@@ -35,6 +34,8 @@ export const register = async (req, res) => {
       email,
       password,
       token,
+      country , SSN , carType , carModelNo , noOfMilesRan , insured,
+     
       // avatar: {
       //   public_id: mycloud.public_id,
       //   url: mycloud.secure_url,
@@ -145,12 +146,17 @@ export const myProfile = async (req, res) => {
 //update profile//
 export const updateProfile = async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name  , carType , carModelNo , noOfMilesRan , insured} = req.body;
+
     // const {avatar} = req.files;
     const user = await User.findById(req.user._id);
     if (name) {
       user.name = name;
     }
+    user.carType = carType;
+    user.carModelNo = carModelNo;
+    user.noOfMilesRan = noOfMilesRan;
+    user.insured = insured
 
     res.status(200).json({ success: true, msg: "profile updated" });
 
@@ -219,6 +225,19 @@ export const resettingPassword = async(req, res)=>{
 
   }
 }
+
+export const allUsers = async (req , res) =>{
+  try{
+    const all = await User.find();
+    if(all){
+      res.status(200).json({msg: 'All Users', users : all})
+    }
+  }catch(err){
+    res.status(404).json({err: err})
+  }
+}
+
+
 
 
 

@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcrypt'; 
+import {Plans} from './Plans.js'
+// const PlansArr = mongoose.model('plansarr',Plans)
 
 const userSchema = new mongoose.Schema({
     name :{
@@ -20,34 +22,27 @@ const userSchema = new mongoose.Schema({
         select: false
     },
 
-
-
-    // avatar :{
-    //     public_id: String,
-    //     url : String,
-    //     required: false
-    // },
+  
 
     createdAt: {
         type: Date,
         default : Date.now,
     },
 
+  
+   
+
+    
+
+
     // from old paperless model //
-    address : {
-        type: String,
-        required: false
-    },
-    state : {
-        type: String,
-        required: false
-    },
+  
     country : {
         type: String,
         required: false
     },
-    aadhaar : {
-        type: String,
+    SSN : {
+        type: Number,
         required: false
     },
     mob : {
@@ -66,6 +61,32 @@ const userSchema = new mongoose.Schema({
         type : String,
         required : false
     },
+
+    carType : {
+        type: String,
+        required: false
+    }, 
+    carModelNo : {
+        type : String,
+        required : false
+    },
+    noOfMilesRan : {
+        type : Number,
+        required : false
+    }, 
+    insured : {
+        type: Boolean,
+        default: true
+    }, 
+
+    crediMotionFees : {
+        type : Number,
+        default : 0
+    },
+    
+   
+
+
 
     // from old paperless model //
     otp: Number,
