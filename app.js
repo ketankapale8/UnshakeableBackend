@@ -24,6 +24,6 @@ app.use('/api/v1', NotificationRouter);
 
 
 app.get('/', (req,res)=>{
-    res.send('Running Paperless Backend..')
+    res.send('Running Credimotion Backend..')
 })
 
