@@ -2,17 +2,15 @@ import {createTransport} from 'nodemailer';
 
 export const sendMail = async (email , subject , text) =>{
     const transport = createTransport({
-        host : 'smtp-relay.sendinblue.com',
-        port : 587,
+        host : process.env.SMTP_HOST,
+        port : process.env.SMTP_PORT,
         secure: false,
         logger: true,
   debug: true,
- tls: {
-    rejectUnAuthorized:true
- } ,// add this ,
+  ignoreTLS: true, // add this ,
         auth : {
-            user : 'ketan.kapale@frigustech.com',
-            pass : 'cjzZ3QAqwvH0IsNm'
+            user : process.env.SMTP_USER,
+            pass : process.env.SMTP_PASS
         }
         
     })
