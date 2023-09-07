@@ -5,7 +5,7 @@ import {Plans} from './Plans.js'
 // const PlansArr = mongoose.model('plansarr',Plans)
 
 const userSchema = new mongoose.Schema({
-    username :{
+    name :{
         type : String,
         required: true,
     },
