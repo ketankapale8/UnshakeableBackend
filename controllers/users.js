@@ -46,7 +46,7 @@ export const register = async (req, res) => {
 
     await sendMail(
       email,
-      "Please verify your account for Paperless",
+      "Please verify your account for Credimotion",
       `Your OTP is ${otp}`
     );
 
