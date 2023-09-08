@@ -44,6 +44,8 @@ export const register = async (req, res) => {
       otp_expiry: new Date(Date.now() + process.env.OTP_EXPIRY * 60 * 60* 10000),
     });
 
+    res.send({success : true })
+
     await sendMail(
       email,
       "Please verify your account for Credimotion",
@@ -200,7 +202,7 @@ export const forgetPassword = async (req,res) =>{
         user.resetPasswordOTPExpiry = new Date(Date.now()+ 10 *60*10000)
         await user.save();
 
-        await sendMail(email , "Password Reset Request for Paperless App" , `OTP for resetting password:  ${otp}`)
+        await sendMail(email , "Password Reset Request for Credimotion App" , `OTP for resetting password:  ${otp}`)
         res.status(200).json({msg: `OTP Sent to ${email}`})
   }catch(err){
     res.status(500).json({ success: false, message: err.message });
