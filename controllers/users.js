@@ -1,5 +1,6 @@
 // Business Logic //
-
+import ErrorHandler from "../utils/errorhandler.js";
+import catchAsyncErrors from "../middleware/catchAsyncErrors.js";
 import { User } from "../models/users.js";
 import { sendMail } from "../utils/sendMail.js";
 import { sendToken } from "../utils/sendToken.js";
@@ -7,7 +8,7 @@ import cloudinary from 'cloudinary';
 import fs from 'fs';
 
 //register//
-export const register = async (req, res) => {
+export const register = catchAsyncErrors(async (req, res) => {
   try {
     const { name, email, password,token , country , SSN , carType , carModelNo , noOfMilesRan , insured } = req.body;
     // const avatar = req.files.avatar.tempFilePath;
@@ -61,7 +62,7 @@ export const register = async (req, res) => {
   } catch (err) {
     res.status(500).json({ success: false, msg: err.message });
   }
-};
+});
 
 // verify //
 export const verify = async (req, res) => {
@@ -87,7 +88,7 @@ export const verify = async (req, res) => {
 };
 
 // login //
-export const login = async (req, res) => {
+export const login = catchAsyncErrors(async (req, res) => {
   try {
     const { email, password } = req.body;
     if (!email || !password) {
@@ -115,7 +116,7 @@ export const login = async (req, res) => {
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }
-};
+});
 
 //logout //
 export const logout = async (req, res) => {
@@ -130,21 +131,27 @@ export const logout = async (req, res) => {
 };
 
 // getMyProfile //
-export const myProfile = async (req, res) => {
-  try {
+export const myProfile = catchAsyncErrors(async (req, res) => {
+  // try {
     let user = await User.findById(req.user._id);
     if (!user) {
       return res
         .status(404)
         .json({ success: false, msg: "No user exists , Login first" });
     }
+    res.status(200).json({
+      success: true,
+      user,
+    });
     
-    sendToken(res, user, 200);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({ success: false, message: err.message });
-  }
-};
+    // sendToken(res, user, 200);
+  // }
+  
+  // catch (err) {
+  //   console.log(err);
+  //   res.status(500).json({ success: false, message: err.message });
+  // }
+});
 
 //update profile//
 export const updateProfile = async (req, res) => {
