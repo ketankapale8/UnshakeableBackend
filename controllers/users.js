@@ -134,11 +134,11 @@ export const logout = async (req, res) => {
 export const myProfile = catchAsyncErrors(async (req, res) => {
   // try {
     let user = await User.findById(req.user._id);
-    if (!user) {
-      return res
-        .status(404)
-        .json({ success: false, msg: "No user exists , Login first" });
-    }
+    // if (!user) {
+    //   return res
+    //     .status(404)
+    //     .json({ success: false, msg: "No user exists , Login first" });
+    // }
     res.status(200).json({
       success: true,
       user,
