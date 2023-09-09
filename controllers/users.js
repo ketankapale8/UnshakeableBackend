@@ -91,7 +91,7 @@ export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
     if (!email || !password) {
-      res
+      return res
         .status(400)
         .json({ msg: "Please enter all fields before submitting" });
     }
@@ -107,11 +107,12 @@ export const login = async (req, res) => {
 
     const isMatched = await user.comparePassword(password);
     if (!isMatched) {
-      res
+      return res
         .status(404)
         .json({ msg: "Wrong password , please enter the correct one" });
     }
     sendToken(res, user, 200, "Login Successful");
+    return res.redirect('/');
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }

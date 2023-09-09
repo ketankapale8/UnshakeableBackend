@@ -6,7 +6,7 @@
             const {token} = req.cookies;
 
             if(!token){
-                res.status(401).json({success:false, msg: "No token provided , Login First"})
+               return res.status(401).json({success:false, msg: "No token provided , Login First"})
             }
 
             const decoded = jwt.verify(token , process.env.JWT_SECRET)
@@ -15,7 +15,7 @@
             next()
             
         }catch(err){
-            res.status(500).json({success: false,msg:err.message})
+           return  res.status(500).json({success: false,msg:err.message})
         }
 
  }
