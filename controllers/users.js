@@ -132,25 +132,21 @@ export const logout = async (req, res) => {
 
 // getMyProfile //
 export const myProfile = catchAsyncErrors(async (req, res) => {
-  // try {
+  try {
     let user = await User.findById(req.user._id);
-    // if (!user) {
-    //   return res
-    //     .status(404)
-    //     .json({ success: false, msg: "No user exists , Login first" });
-    // }
-    res.status(200).json({
-      success: true,
-      user,
-    });
+    if (!user) {
+      return res
+        .status(404)
+        .json({ success: false, msg: "No user exists , Login first" });
+    }
     
-    // sendToken(res, user, 200);
-  // }
+    sendToken(res, user, 200);
+  }
   
-  // catch (err) {
-  //   console.log(err);
-  //   res.status(500).json({ success: false, message: err.message });
-  // }
+  catch (err) {
+    console.log(err);
+    res.status(500).json({ success: false, message: err.message });
+  }
 });
 
 //update profile//
