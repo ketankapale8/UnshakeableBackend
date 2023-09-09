@@ -1,5 +1,4 @@
 // Business Logic //
-import ErrorHandler from "../utils/errorhandler.js";
 
 import { User } from "../models/users.js";
 import { sendMail } from "../utils/sendMail.js";
