@@ -112,9 +112,7 @@ export const login = async (req, res) => {
         .json({ msg: "Wrong password , please enter the correct one" });
     }
     sendToken(res, user, 200, "Login Successful");
-  }
-  
-  catch (err) {
+  } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }
 };
@@ -140,7 +138,7 @@ export const myProfile = async (req, res) => {
         .status(404)
         .json({ success: false, msg: "No user exists , Login first" });
     }
-    sendToken(res, user, 200, `Profile Details for ${user}`);
+    sendToken(res, user, 200);
   } catch (err) {
     console.log(err);
     res.status(500).json({ success: false, message: err.message });
