@@ -15,6 +15,8 @@
         email : user.email,
         verified : user.verified
     }
+
+    res.cookie("jwt", token , options)
     
     res.status(statusCode)
     .cookie("token", token , options)
