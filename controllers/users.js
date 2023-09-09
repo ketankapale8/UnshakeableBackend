@@ -133,16 +133,16 @@ export const logout = async (req, res) => {
 export const myProfile = async (req, res) => {
   try {
     let user = await User.findById(req.user._id);
-    // if (!user) {
-    //   return res
-    //     .status(404)
-    //     .json({ success: false, msg: "No user exists , Login first" });
-    // }
+    if (!user) {
+      return res
+        .status(404)
+        .json({ success: false, msg: "No user exists , Login first" });
+    }
     
     sendToken(res, user, 200);
   } catch (err) {
     console.log(err);
-    // res.status(500).json({ success: false, message: err.message });
+    res.status(500).json({ success: false, message: err.message });
   }
 };
 
