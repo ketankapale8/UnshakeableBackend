@@ -17,7 +17,7 @@ app.use(fileUpload({
     useTempFiles: true
 }))
 
-app.use(cors({origin:true}))
+app.use(cors())
 
 app.use('/api/v1', UserRouter);
 app.use('/api/v1', NotificationRouter);
