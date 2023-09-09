@@ -4,9 +4,8 @@
 
     const options = {
         httpOnly:true,
-        secure: true,
-        signed: true,
-    
+        
+        
         expires : new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES *24 *60 *600 * 1000)
     }
 
