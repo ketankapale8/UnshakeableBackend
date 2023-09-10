@@ -24,7 +24,7 @@ const corsOptions = {
     allowedHeaders : 'X-Requested-With , Content-Type , Authorization'
 }
 
-app.use(cors(corsOptions))
+app.use(cors())
 
 app.use('/api/v1', UserRouter);
 app.use('/api/v1', NotificationRouter);
