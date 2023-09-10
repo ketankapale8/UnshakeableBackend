@@ -11,7 +11,7 @@ router.post("/verify", isAuthenticated,verify);
 router.post("/login", login);
 router.get("/logout", logout);
 router.get("/me", isAuthenticated, myProfile);
-router.put("/updateprofile",updateProfile );
+router.put("/updateprofile", isAuthenticated,updateProfile );
 router.put("/updatepassword", isAuthenticated, updatePassword);
 router.post("/forgetpassword", forgetPassword);
 router.put("/resetpassword", resettingPassword);
