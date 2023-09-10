@@ -9,7 +9,7 @@ import fs from 'fs';
 //register//
 export const register = async (req, res) => {
   try {
-    const { name, email, password,token , country , SSN , carType , carModelNo , noOfMilesRan , insured } = req.body;
+    const { name, email, password } = req.body;
     // const avatar = req.files.avatar.tempFilePath;
     
     let user = await User.findOne({ email });
@@ -33,8 +33,7 @@ export const register = async (req, res) => {
       name,
       email,
       password,
-      token,
-      country , SSN , carType , carModelNo , noOfMilesRan , insured,
+    
      
       // avatar: {
       //   public_id: mycloud.public_id,
@@ -52,7 +51,7 @@ export const register = async (req, res) => {
       `Your OTP is ${otp}`
     );
 
-    sendToken(
+    return sendToken(
       res,
       user,
       201,
@@ -161,12 +160,12 @@ export const updateProfile = async (req, res) => {
     user.noOfMilesRan = noOfMilesRan;
     user.insured = insured
 
-    res.status(200).json({ success: true, msg: "profile updated" });
-
+    
     //  if(avatar){
-
-    //  }
-    await user.save();
+      
+      //  }
+      await user.save();
+      return res.status(200).json({ success: true, msg: "profile updated" });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }
