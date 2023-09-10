@@ -4,8 +4,8 @@
 
     const options = {
         httpOnly:true,
-        
-        
+        sameSite : process.env.NODE_ENV == "Development" ? "lax": "none",
+        secure : process.env.NODE_ENV == "Development" ? false : true,
         expires : new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES *24 *60 *600 * 1000)
     }
 
