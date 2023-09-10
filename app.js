@@ -18,13 +18,16 @@ app.use(fileUpload({
 }))
 
 const corsOptions = {
-    origin : "http://localhost:3000",
     credentials : true , 
-    methods : 'GET ,POST ,PUT , PATCH , DELETE , OPTIONS',
     allowedHeaders : 'X-Requested-With , Content-Type , Authorization'
 }
 
-app.use(cors())
+app.use(cors({
+    methods : ['GET ,POST ,PUT , PATCH , DELETE '],
+    origin : "http://localhost:3000",
+    credentials : true
+
+}))
 
 app.use('/api/v1', UserRouter);
 app.use('/api/v1', NotificationRouter);
