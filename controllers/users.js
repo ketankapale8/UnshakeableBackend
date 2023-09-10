@@ -153,17 +153,20 @@ export const myProfile = async (req, res) => {
 //update profile//
 export const updateProfile = async (req, res) => {
   try {
-    const { name  , carType , carModelNo , noOfMilesRan , insured} = req.body;
+    const { name  , carType , carModelNo , noOfMilesRan , SSN , mob , alt_mob, country} = req.body;
 
     // const {avatar} = req.files;
     const user = await User.findById(req.user._id);
     if (name) {
       user.name = name;
     }
-    user.carType = carType;
-    user.carModelNo = carModelNo;
+    // user.carType = carType;
+    // user.carModelNo = carModelNo;
     user.noOfMilesRan = noOfMilesRan;
-    user.insured = insured
+    user.SSN = SSN;
+    user.mob = mob;
+    user.alt_mob = alt_mob;
+    user.country = country    // user.insured = insured
 
     
     //  if(avatar){
