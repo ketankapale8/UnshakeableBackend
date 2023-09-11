@@ -160,8 +160,8 @@ export const updateProfile = async (req, res) => {
     if (name) {
       user.name = name;
     }
-    // user.carType = carType;
-    // user.carModelNo = carModelNo;
+    user.carType = carType;
+    user.carModelNo = carModelNo;
     user.noOfMilesRan = noOfMilesRan;
     user.SSN = SSN;
     user.mob = mob;
