@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt'; 
-import {Plans} from './Plans.js'
+import {Plans} from './Service.js'
 // const PlansArr = mongoose.model('plansarr',Plans)
 
 const userSchema = new mongoose.Schema({
