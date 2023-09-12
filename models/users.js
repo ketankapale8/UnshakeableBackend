@@ -1,10 +1,10 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt'; 
-import {Plans} from './Service.js'
 // const PlansArr = mongoose.model('plansarr',Plans)
 
 const userSchema = new mongoose.Schema({
+    // user_id : {type : mongoose.Schema.Types.ObjectId, ref: 'user'},
     name :{
         type : String,
         required: true,
@@ -28,6 +28,7 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default : Date.now,
     },
+
 
   
    

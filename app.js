@@ -1,4 +1,5 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 import UserRouter from './routes/User.js';
 import ServiceRouter from './routes/Service.js'
 import NotificationRouter from './routes/Tokens.js'
@@ -9,6 +10,7 @@ import cors from 'cors'
 export const app = express();
 
 app.use(express.json());
+app.use(bodyParser.json());
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser());
 app.use(fileUpload({

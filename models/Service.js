@@ -1,10 +1,13 @@
 import mongoose from 'mongoose';
+// const Schema = mongoose.Schema
+// const ObjectId = Schema.Types.ObjectId
 
 const servicesSchema = new mongoose.Schema(
     {
-        user: {
-            type: mongoose.Schema.ObjectId,
-            ref: "User",
+        
+        user_id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
             required: true,
         },
 
@@ -15,7 +18,7 @@ const servicesSchema = new mongoose.Schema(
         },
 
         ServiceVal : {
-            type : Number,
+            type : String,
             required : true
         },
 
@@ -25,12 +28,12 @@ const servicesSchema = new mongoose.Schema(
         }
         ,
         startDate : {
-            type : Date,
+            type : String,
             required : true
         },
 
         total : {
-            type : Number,
+            type : String,
             required : true
         }, 
 
