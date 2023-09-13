@@ -4,7 +4,10 @@ import mongoose from 'mongoose';
 
 const servicesSchema = new mongoose.Schema(
     {
-        
+        email : {
+            type:String,
+            required: true
+        },
         user_id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User',

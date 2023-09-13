@@ -5,8 +5,9 @@ import { sendMail } from "../utils/sendMail.js";
 // Create Services //
 export const CreateService = async (req , res) => {
     try{
-
+        const {email, user_id, ServicePlan , ServiceVal , payOptions, startDate, total, selectedOption} = req.body;
         const service = await Service.create({
+            email : req.body.email,
             user_id : req.body.user_id,
             ServicePlan : req.body.ServicePlan, 
             ServiceVal : req.body.ServiceVal,
@@ -33,10 +34,21 @@ export const CreateService = async (req , res) => {
         //     await plan.save()
         // }
 
-        // await sendMail(
-        //     user.email,
-        //     `Service Plan for your vehicle is updated on Credimotion's Portal for ${user.name}`,
-        //   );
+        await sendMail(
+            email,
+            "Credimotion's Portal Update",
+            `Below are your Service Plan for your vehicle is updated on Credimotion's Portal
+                ReferenceId : ${user_id},
+                Service Plan Name : ${ServicePlan},
+                Extra Services : ${selectedOption},
+                Plan Amount : ${ServiceVal} $,
+                Payment Option Selected : ${payOptions},
+                Plan Start Date : ${startDate},
+                Total Amount : ${total},
+
+            
+            `,
+          );
         res.send({json: "Updated"})
 
     }catch(err){
