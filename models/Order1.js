@@ -16,13 +16,13 @@ const OrderSchema = new mongoose.Schema(
 
         servicePlan : {
             type : String,
-            required : false,
+            required : true
 
         },
 
         serviceVal : {
             type : String,
-            required : false
+            required : true
         },
 
         payOptions : {

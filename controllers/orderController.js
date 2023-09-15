@@ -1,5 +1,5 @@
 
-import { Order } from "../models/Order.js";
+import { Order } from "../models/Order1.js";
 import { User } from "../models/users.js";
 import { sendMail } from "../utils/sendMail.js";
 
@@ -10,8 +10,8 @@ export const CreateOrder = async (req , res) => {
         const order = await Order.create({
             email : req.body.email,
             user_id : req.body.user_id,
-            ServicePlan : req.body.ServicePlan, 
-            ServiceVal : req.body.ServiceVal,
+            ServicePlan : req.body.servicePlan, 
+            ServiceVal : req.body.serviceVal,
             payOptions : req.body.payOptions , 
                     startDate : req.body.startDate, 
                     total : req.body.total ,
