@@ -8,12 +8,14 @@ export const CreateOrder = async (req , res) => {
     try{
         const {email, user_id, servicePlan , serviceVal , payOptions, startDate, total, selectedOption} = req.body;
         const order = await Order.create({
-            email ,
-            user_id ,
-            payOptions , 
-                    startDate ,
-                    total  ,
-                     selectedOption
+            total,
+       email,
+        user_id,
+        servicePlan, 
+        serviceVal ,
+        startDate,
+        payOptions, 
+        selectedOption
         })
 
         await order.save()
@@ -36,7 +38,7 @@ export const CreateOrder = async (req , res) => {
         await sendMail(
             email,
             "Credimotion's Portal Update",
-            ` Payment for your vehicle has been processed with Amount : ${total} for plan ${ServicePlan},  which will start from ${startDate}.
+            ` Payment for your vehicle has been processed with Amount : ${total} for plan ${servicePlan},  which will start from ${startDate}.
             Thankyou for choosing Credimotion!
             `,
           );
