@@ -2,8 +2,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import UserRouter from './routes/User.js';
 import ServiceRouter from './routes/Service.js';
+import PayRouter from './routes/Payment.js';
 import NotificationRouter from './routes/Tokens.js';
-import PayRouter from './routes.Payment.js';
 import cookieParser from 'cookie-parser';
 import fileUpload from 'express-fileupload';
 import cors from 'cors'

@@ -1,5 +1,5 @@
 import express from 'express';
-import { ProcessPayment } from "../controllers/paymentController";
+import { ProcessPayment } from "../controllers/paymentController.js";
 
 // const stripe = require("stripe")(process.env.STRIPE_SECRET);
 
