@@ -14,13 +14,13 @@ const servicesSchema = new mongoose.Schema(
             required: true,
         },
 
-        servicePlan : {
+        ServicePlan : {
             type : String,
             required : true
 
         },
 
-        serviceVal : {
+        ServiceVal : {
             type : String,
             required : true
         },
