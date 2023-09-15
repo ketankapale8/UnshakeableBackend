@@ -6,11 +6,11 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 
 export const ProcessPayment = async (req, res) => {
-    const {total, email , user_id , ServicePlan , ServiceVal , startDate } = req.body;
+    const {total, email , user_id , servicePlan , serviceVal , startDate } = req.body;
 
     const session = await stripe.checkout.sessions.create({
         payment_method_types:["card"],
-        line_items: [total , email , user_id , ServicePlan , ServiceVal , startDate ],
+        line_items: [{total , email , user_id , servicePlan , serviceVal , startDate} ],
         mode:"payment",
         success_url:"https://credimotion.netlify.app/sucess",
         cancel_url:"https://credimotion.netlify.app/failure",
