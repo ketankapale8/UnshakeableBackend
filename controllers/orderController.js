@@ -6,16 +6,14 @@ import { sendMail } from "../utils/sendMail.js";
 // Create Services //
 export const CreateOrder = async (req , res) => {
     try{
-        const {email, user_id, ServicePlan , ServiceVal , payOptions, startDate, total, selectedOption} = req.body;
+        const {email, user_id, servicePlan , serviceVal , payOptions, startDate, total, selectedOption} = req.body;
         const order = await Order.create({
-            email : req.body.email,
-            user_id : req.body.user_id,
-            ServicePlan : req.body.ServicePlan, 
-            ServiceVal : req.body.ServiceVal,
-            payOptions : req.body.payOptions , 
-                    startDate : req.body.startDate, 
-                    total : req.body.total ,
-                     selectedOption : req.body.selectedOption
+            email ,
+            user_id ,
+            payOptions , 
+                    startDate ,
+                    total  ,
+                     selectedOption
         })
 
         await order.save()
