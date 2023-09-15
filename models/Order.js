@@ -14,13 +14,13 @@ const OrderSchema = new mongoose.Schema(
             required: true,
         },
 
-        ServicePlan : {
+        servicePlan : {
             type : String,
             required : false,
 
         },
 
-        ServiceVal : {
+        serviceVal : {
             type : String,
             required : false
         },
