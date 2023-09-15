@@ -42,6 +42,7 @@ app.use('/api/v1', PayRouter);
 
 
 
+
 app.get('/', (req,res)=>{
     res.send('Running Credimotion Backend..')
 })
