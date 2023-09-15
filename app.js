@@ -1,8 +1,9 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import UserRouter from './routes/User.js';
-import ServiceRouter from './routes/Service.js'
-import NotificationRouter from './routes/Tokens.js'
+import ServiceRouter from './routes/Service.js';
+import NotificationRouter from './routes/Tokens.js';
+import PayRouter from './routes.Payment.js';
 import cookieParser from 'cookie-parser';
 import fileUpload from 'express-fileupload';
 import cors from 'cors'
@@ -35,6 +36,9 @@ app.use(cors({
 app.use('/api/v1', UserRouter);
 app.use('/api/v1', NotificationRouter);
 app.use('/api/v1', ServiceRouter);
+app.use('/api/v1', PayRouter);
+
+
 
 
 

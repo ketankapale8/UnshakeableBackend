@@ -1,18 +1,23 @@
-
 // const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+import Stripe from "stripe";
 
-// exports.processPayment = async (req, res, next) => {
-//   const myPayment = await stripe.paymentIntents.create({
-//     amount: req.body.amount,
-//     currency: "inr",
-  
-//   });
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-//   res
-//     .status(200)
-//     .json({ success: true, client_secret: myPayment.client_secret });
-// };
 
-// exports.sendStripeApiKey = catchAsyncErrors(async (req, res, next) => {
-//   res.status(200).json({ stripeApiKey: process.env.STRIPE_API_KEY });
-// });
+
+export const ProcessPayment = async (req, res) => {
+    const {total, email , user_id , ServicePlan , ServiceVal , startDate , selectedOption} = req.body;
+
+    const session = await stripe.checkout.sessions.create({
+        payment_method_types:["card"],
+        line_items: [total , email , user_id , ServicePlan , ServiceVal , startDate , selectedOption],
+        mode:"payment",
+        success_url:"https://credimotion.netlify.app/sucess",
+        cancel_url:"https://credimotion.netlify.app/failure",
+    });
+
+    res.json({id:session.id})
+
+
+};
+
