@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import ImageRouter from './routes/Image.js'
 import UserRouter from './routes/User.js';
 import ServiceRouter from './routes/Service.js';
 import OrderRouter from './routes/Order.js'
@@ -39,6 +40,8 @@ app.use('/api/v1', NotificationRouter);
 app.use('/api/v1', ServiceRouter);
 app.use('/api/v1', PayRouter);
 app.use('/api/v1', OrderRouter);
+app.use('/api/v1', ImageRouter);
+
 
 app.get('/', (req,res)=>{
     res.send('Running Credimotion Backend..')
