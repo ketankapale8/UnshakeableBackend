@@ -81,7 +81,7 @@ export const findOrder = async (req ,res) => {
         res.status(200).json({order , msg: 'order found!!!'})
 
     }catch(err){
-        console.log(err)
+        res.status(500).json({ success: false, message: err.message });
     }
     
 }
