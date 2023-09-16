@@ -30,7 +30,7 @@ const corsOptions = {
 
 app.use(cors({
     methods : ["GET" ,"POST" ,"PUT" ,"PATCH","DELETE"],
-    allowedHeaders : ['X-Requested-With' , 'Content-Type' , 'Authorization'],
+    // allowedHeaders : 'X-Requested-With ,Content-Type ,Authorization',
     origin : process.env.FRONT_END_URL,
     credentials : true
 }))
