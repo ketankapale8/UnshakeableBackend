@@ -77,7 +77,7 @@ export const CreateOrder = async (req , res) => {
 export const findOrder = async (req ,res) => {
     try{
         const {user_id} = req.body
-        const order = await Order.findById(user_id);
+        const order = await Order.findById(req.user.id);
         res.status(200).json({order , msg: 'order found!!!'})
 
     }catch(err){
@@ -85,4 +85,17 @@ export const findOrder = async (req ,res) => {
     }
     
 }
+
+
+// all orders // 
+export const allOrders = async (req , res) =>{
+    try{
+      const all = await Order.find();
+      if(all){
+        res.status(200).json({msg: 'All Users', orders : all})
+      }
+    }catch(err){
+      res.status(404).json({err: err})
+    }
+  }
 
