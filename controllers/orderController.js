@@ -76,7 +76,8 @@ export const CreateOrder = async (req , res) => {
 
 export const findOrder = async (req ,res) => {
     try{
-        const order = await Order.findById(req.user._id);
+
+        const order = await Order.findById(req.body.user_id);
         res.status(200).json({order , msg: 'order found!!!'})
 
     }catch(err){
