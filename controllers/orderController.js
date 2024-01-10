@@ -37,9 +37,9 @@ export const CreateOrder = async (req , res) => {
 
         await sendMail(
             email,
-            "Credimotion's Portal Update",
-            ` Payment for your vehicle has been processed with Amount : ${total} for plan ${servicePlan},  which will start from ${startDate}.
-            Thankyou for choosing Credimotion!
+            "Unshakeable's Portal Update",
+            ` Payment for your account has been processed with Amount : ${total} for plan ${servicePlan},  which will start from ${startDate}.
+          
             `,
           );
         res.send({json: "Updated"})
@@ -49,28 +49,6 @@ export const CreateOrder = async (req , res) => {
     }
 }
 
-//Update Services // 
-
-// export const UpdateServices= async (req , res) => {
-//     try{
-//         let user = await User.findById(req.user._id);
-//         let plan = awa
-//         const { ServicePlan, ServiceVal, payOptions , startDate , total , selectedOption} = req.body;
-//         if(user){
-            
-
-//             plan.save()
-//         }
-
-//         await sendMail(
-//             user.email,
-//             `Service Plan for your vehicle is updated on Credimotion's Portal for ${user.name}`,
-//           );
-
-//     }catch(err){
-//         res.status(500).json({ success: false, msg: err.message });
-//     }
-// }
 
 //find an order;
 

@@ -23,12 +23,9 @@ const OrderSchema = new mongoose.Schema(
         serviceVal : {
             type : String,
             required : true
-        },
-
-        payOptions : {
-            type : String,
-            required : true
         }
+
+   
         ,
         startDate : {
             type : String,
@@ -40,43 +37,11 @@ const OrderSchema = new mongoose.Schema(
             required : true
         }, 
 
-        selectedOption : {
-            type : String, 
-            required : true
-        }
+     
 
 
 
 
-        // Fast : {
-        //     type : mongoose.Schema.Types.ObjectId,
-        //     ref : 'User',  
-        //     type: Number,
-        //     required : false,
-        //     defaultFees: 0, 
-        // },
-        // Radial : {
-        //     type : mongoose.Schema.Types.ObjectId,
-        //     ref : 'User', 
-        //     type: Number,
-        //     required : false,
-        //     defaultFees: 38.99
-        // },
-        // Performance : {
-        //     type : mongoose.Schema.Types.ObjectId,
-        //     ref : 'User', 
-        //     type: Number,
-        //     required : false,
-        //     default: 78.99
-
-        // },
-        // STS : {
-        //     type : mongoose.Schema.Types.ObjectId,
-        //     ref : 'User', 
-        //     type: Number,
-        //     required : false,
-        //     default: 197.99
-        // }
     }
 )
 

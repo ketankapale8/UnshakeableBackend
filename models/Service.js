@@ -48,35 +48,7 @@ const servicesSchema = new mongoose.Schema(
 
 
 
-        // Fast : {
-        //     type : mongoose.Schema.Types.ObjectId,
-        //     ref : 'User',  
-        //     type: Number,
-        //     required : false,
-        //     defaultFees: 0, 
-        // },
-        // Radial : {
-        //     type : mongoose.Schema.Types.ObjectId,
-        //     ref : 'User', 
-        //     type: Number,
-        //     required : false,
-        //     defaultFees: 38.99
-        // },
-        // Performance : {
-        //     type : mongoose.Schema.Types.ObjectId,
-        //     ref : 'User', 
-        //     type: Number,
-        //     required : false,
-        //     default: 78.99
 
-        // },
-        // STS : {
-        //     type : mongoose.Schema.Types.ObjectId,
-        //     ref : 'User', 
-        //     type: Number,
-        //     required : false,
-        //     default: 197.99
-        // }
     }
 )
 

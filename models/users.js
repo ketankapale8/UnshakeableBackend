@@ -36,16 +36,12 @@ const userSchema = new mongoose.Schema({
     
 
 
-    // from old paperless model //
   
     country : {
         type: String,
         required: false
     },
-    SSN : {
-        type: Number,
-        required: false
-    },
+
     mob : {
         type: Number,
         required: false
@@ -63,37 +59,12 @@ const userSchema = new mongoose.Schema({
         required : false
     },
 
-    carType : {
-        type: String,
-        required: false
-    }, 
-    carModelNo : {
-        type : String,
-        required : false
-    },
-    noOfMilesRan : {
-        type : Number,
-        required : false
-    }, 
-    insured : {
-        type: Boolean,
-        default: true
-    }, 
-
-    crediMotionFees : {
-        type : Number,
-        default : 0
-    },
     
    
 
 
 
-    // from old paperless model //
-    otp: Number,
-    otp_expiry:Date,
-    resetPasswordOTP : Number,
-    resetPasswordOTPExpiry: Date,
+
 
 })
 
