@@ -5,7 +5,22 @@ import bcrypt from 'bcrypt';
 
 const userSchema = new mongoose.Schema({
     // user_id : {type : mongoose.Schema.Types.ObjectId, ref: 'user'},
-    name :{
+    fname :{
+        type : String,
+        required: true,
+    },
+
+    username :{
+        type : String,
+        required: false,
+    },
+
+    mob: {
+        type : Number,
+        required: false,
+    },
+
+    lname :{
         type : String,
         required: true,
     },
@@ -42,14 +57,7 @@ const userSchema = new mongoose.Schema({
         required: false
     },
 
-    mob : {
-        type: Number,
-        required: false
-    },
-    alt_mob : {
-        type: Number,
-        required: false
-    },
+  
     verified : {
         type: Boolean,
         default: false

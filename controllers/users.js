@@ -9,7 +9,7 @@ import fs from 'fs';
 //register//
 export const register = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { email, password,fname ,lname,username,mob } = req.body;
     // const avatar = req.files.avatar.tempFilePath;
     
     let user = await User.findOne({ email });
@@ -30,9 +30,11 @@ export const register = async (req, res) => {
     // fs.rmSync("./tmp", { recursive: true});
 
     user = await User.create({
-      name,
+      fname,
+      lname,
       email,
       password,
+      mob,
     
      
       // avatar: {

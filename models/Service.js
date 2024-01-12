@@ -14,31 +14,17 @@ const servicesSchema = new mongoose.Schema(
             required: true,
         },
 
-        ServicePlan : {
+        Plan : {
             type : String,
             required : true
 
         },
-
-        ServiceVal : {
-            type : String,
-            required : true
-        },
-
-        payOptions : {
-            type : String,
-            required : true
-        }
-        ,
         startDate : {
             type : String,
             required : true
         },
 
-        total : {
-            type : Number,
-            required : true
-        }, 
+    
 
         selectedOption : {
             type : String, 
