@@ -7,17 +7,7 @@ export const ProcessPayment = async (req, res) => {
 
         const {amount, customerId } = req.body;
 
-    // const lineItems = [{currency: 'inr', total : total * 100 , email , user_id , servicePlan , serviceVal , startDate}]
-
-    // const session = await stripe.checkout.sessions.create({
-    //     payment_method_types:["card"],
-    //     line_items: lineItems,
-    //     mode:"payment",
-    //     success_url:"https://credimotion.netlify.app/sucess",
-    //     cancel_url:"https://credimotion.netlify.app/failure",
-    // });
-
-    // res.json({id:session.id})
+  
     const paymentIntent  = await stripe.paymentIntents.create({
         amount : amount,
         customerId : customerId,
