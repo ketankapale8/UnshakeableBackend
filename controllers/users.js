@@ -35,12 +35,7 @@ export const register = async (req, res) => {
       email,
       password,
       mob,
-    
-     
-      // avatar: {
-      //   public_id: mycloud.public_id,
-      //   url: mycloud.secure_url,
-      // },
+      username,
       otp,
       otp_expiry: new Date(Date.now() + process.env.OTP_EXPIRY * 60 * 60* 10000),
     });
@@ -50,7 +45,11 @@ export const register = async (req, res) => {
     await sendMail(
       email,
       "Please verify your account for Unshakeable App",
-      `Your OTP is ${otp}`
+      `Your OTP is ${otp}
+      
+      Regards,
+      Unshakeable Team
+      `
     );
 
     return sendToken(
@@ -80,7 +79,7 @@ export const verify = async (req, res) => {
 
     await user.save();
 
-    sendToken(res, user, 200, "Account Verified");
+    sendToken(res, user, 200, "Account Verified for Unshakeable");
   } catch (err) {
     console.log(err);
     // res.status(500).json({success: false, msg:err.message})
@@ -155,18 +154,15 @@ export const myProfile = async (req, res) => {
 //update profile//
 export const updateProfile = async (req, res) => {
   try {
-    const { name  , SSN , mob , alt_mob, country} = req.body;
+    const { fname  , mob , } = req.body;
 
     // const {avatar} = req.files;
     const user = await User.findById(req.user._id);
     if (name) {
-      user.name = name;
+      user.fname = name;
     }
 
-    user.SSN = SSN;
     user.mob = mob;
-    user.alt_mob = alt_mob;
-    user.country = country    // user.insured = insured
 
     
     //  if(avatar){
