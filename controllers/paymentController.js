@@ -5,7 +5,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 
 export const ProcessPayment = async (req, res) => {
-    const myPayment = await stripe.paymentIntents.create({
+    const paymentIntent  = await stripe.paymentIntents.create({
         amount : req.body.amount,
         currency: "usd",
         automatic_payment_methods: {
@@ -15,7 +15,7 @@ export const ProcessPayment = async (req, res) => {
 
     res
     .status(200)
-    .json({ success: true, client_secret: myPayment.client_secret });
+    res.json({ paymentIntent: paymentIntent.client_secret });
 };
 
 
