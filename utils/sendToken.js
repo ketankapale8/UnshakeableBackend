@@ -11,9 +11,13 @@
 
     const userData = {
         _id: user._id,
-        name : user.name,
+        fname : user.fname,
+        lname : user.lname,
+        username : user.username,
         email : user.email,
-        verified : user.verified
+        mob : user.mob,
+        verified : user.verified,
+
     }
 
     res.cookie("jwt", token , options)
