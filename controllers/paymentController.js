@@ -2,11 +2,13 @@ import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-
+const ephemeralKey = await stripe.ephemeralKeys.create(
+    {customer : "lajdaljdlajdlkajd"}
+)
 
 export const ProcessPayment = async (req, res) => {
 
-        const {amount, customerId  } = req.body;
+        const {amount, customerId } = req.body;
 
     // const lineItems = [{currency: 'inr', total : total * 100 , email , user_id , servicePlan , serviceVal , startDate}]
 
@@ -30,7 +32,10 @@ export const ProcessPayment = async (req, res) => {
 
     res
     .status(200)
-    res.json({ paymentIntent: paymentIntent.client_secret , customerId : customerId});
+    res.json({ paymentIntent: paymentIntent.client_secret , 
+        ephemeralKey : ephemeralKey.secret,
+        customerId : customerId
+    });
 
     
 
