@@ -2,7 +2,10 @@ import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-
+const ephemeralKey = await stripe.ephemeralKeys.create(
+    {customer : "lajdaljdlajdlkajd"},
+    {apiVersion : '2020-08-27'}
+)
 
 export const ProcessPayment = async (req, res) => {
 
@@ -31,6 +34,7 @@ export const ProcessPayment = async (req, res) => {
     res
     .status(200)
     res.json({ paymentIntent: paymentIntent.client_secret , 
+        ephemeralKey : ephemeralKey.secret,
         customerId : customerId
     });
 
